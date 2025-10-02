@@ -27,7 +27,7 @@ Fixed::Fixed(const Fixed& copy)
 Fixed& Fixed::operator=(const Fixed& copy)
 {
 	// std::cout << "Copy assignment operator called" << std::endl;
-	raw = copy.getRawBits();
+	raw = copy.raw;
 	return *this;
 }
 
@@ -73,22 +73,22 @@ bool Fixed::operator<=( const Fixed& other ) const
 	return 0;
 }
 
-Fixed Fixed::operator+( const Fixed other ) const
+Fixed Fixed::operator+( const Fixed& other ) const
 {
 	return (Fixed(this->toFloat() + other.toFloat()));
 }
 
-Fixed Fixed::operator-( const Fixed other ) const
+Fixed Fixed::operator-( const Fixed& other ) const
 {
 	return (Fixed(this->toFloat() - other.toFloat()));
 }
  
-Fixed Fixed::operator*( const Fixed other ) const
+Fixed Fixed::operator*( const Fixed& other ) const
 {
 	return (Fixed(this->toFloat() * other.toFloat()));
 }
 
-Fixed Fixed::operator/( const Fixed other ) const
+Fixed Fixed::operator/( const Fixed& other ) const
 {
 	return (Fixed(this->toFloat() / other.toFloat()));
 }
